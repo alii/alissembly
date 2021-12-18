@@ -4,7 +4,7 @@
 
 # Starting value
 ADR 1
-SET 10000
+SET 10
 
 # Value to decrement by
 ADR 2
@@ -19,3 +19,6 @@ GET 1
 PNT
 SUB 3 2
 JNZ 3 main
+
+# Setup for next program
+WIPE

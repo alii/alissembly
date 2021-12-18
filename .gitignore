@@ -4,3 +4,5 @@
 main
 bench/prog
 bench/prog-realistic
+
+.DS_Store
