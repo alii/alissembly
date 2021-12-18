@@ -1,14 +1,17 @@
+# Max Value
 ADR 1
 SET 10
-MUL 1 1
+
+# Value to decrement by
 ADR 2
-SET 10
-DEBUG_MEM
-ADR 1
-ADD 1 2
-DEL 2
-ADR 0
+SET 1
+
+# Counter
+ADR 4
 GET 1
-DEL 1
-DEBUG_MEM
-RET 0
+
+# Loop starts
+.loop main
+PNT
+SUB 4 2
+JNZ 4 main
