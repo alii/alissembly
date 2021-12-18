@@ -1,6 +1,6 @@
 # Max Value
 ADR 1
-SET 10
+SET 1000000
 
 # Value to decrement by
 ADR 2
