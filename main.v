@@ -12,7 +12,9 @@ const op_codes = [
 	'DEBUG_ADR',
 	'GET',
 	'JNZ',
-	'PNT'
+	'PNT',
+	'WIPE',
+	'PNS'
 	// Fake opcode
 	'loop',
 ]
@@ -56,8 +58,15 @@ fn main() {
 		}
 
 		match opcode {
+			'WIPE' {
+				mem = {}
+			}
 			'loop' {
 				loop_markers[split[1..].join(' ')] = i
+			}
+			'PNS' {
+				character := byte(mem[curr_addr])
+				print(character.ascii_str())
 			}
 			'ADR' {
 				curr_addr = args[0]

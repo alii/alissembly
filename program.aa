@@ -1,6 +1,11 @@
+
+#####################
+# Count down from x #
+#####################
+
 # Max Value
 ADR 1
-SET 1000000
+SET 10
 
 # Value to decrement by
 ADR 2
@@ -15,3 +20,41 @@ GET 1
 PNT
 SUB 4 2
 JNZ 4 main
+
+# Setup for next program
+WIPE
+
+###############
+# Hello world #
+###############
+
+ADR 1
+SET 104
+PNS
+SET 101
+PNS
+SET 108
+PNS
+SET 108
+PNS
+SET 111
+PNS
+SET 032
+PNS
+SET 119
+PNS
+SET 111
+PNS
+SET 114
+PNS
+SET 108
+PNS
+SET 100
+PNS
+SET 13
+PNS
+SET 10
+PNS
+
+# Setup for next program
+WIPE
