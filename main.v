@@ -1,8 +1,10 @@
 import os
 
+const op_codes = ['ADR', 'ADD', 'SUB', 'MUL', 'DIV', 'SET', 'RET']
+
 struct ProgramLine {
 	line   string
-	number i8
+	number i16
 }
 
 fn main() {
@@ -14,26 +16,50 @@ fn main() {
 	raw_lines := data.split('\n')
 	lines := get_valid_lines(raw_lines)
 
-	mut curr_addr := i8(0)
+	mut curr_addr := i64(0)
+	mut mem := map[i64]i64{}
 
 	for program_line in lines {
 		split := program_line.line.split(' ')
 		opcode := split[0]
-		args := split[1..].map(it.i8())
+		args := split[1..].map(it.i64())
 
 		if !is_valid_opcode(opcode) {
 			panic('Invalid opcode: ' + opcode + ' on line ' + program_line.number.str())
 			return
 		}
 
-		println(opcode)
-		println(args)
-		println(curr_addr)
+		match opcode {
+			'ADR' {
+				curr_addr = args[0]
+			}
+			'SET' {
+				mem[curr_addr] = args[0]
+			}
+			'ADD' {
+				mem[curr_addr] = mem[args[0]] + mem[args[1]]
+			}
+			'SUB' {
+				mem[curr_addr] = mem[args[0]] - mem[args[1]]
+			}
+			'MUL' {
+				mem[curr_addr] = mem[args[0]] * mem[args[1]]
+			}
+			'DIV' {
+				mem[curr_addr] = mem[args[0]] / mem[args[1]]
+			}
+			'RET' {
+				println(mem[args[0]])
+			}
+			else {
+				println('UNHANDLED OPCODE: ' + opcode)
+			}
+		}
 	}
 }
 
 fn is_valid_opcode(code string) bool {
-	return false
+	return code in op_codes
 }
 
 fn get_valid_lines(lines []string) []ProgramLine {
