@@ -1,23 +1,8 @@
 import os
 
-const op_codes = [
-	'ADR',
-	'ADD',
-	'SUB',
-	'MUL',
-	'DIV',
-	'SET',
-	'DEL',
-	'DEBUG_MEM',
-	'DEBUG_ADR',
-	'GET',
-	'JNZ',
-	'PNT',
-	'WIPE',
-	'PNS'
-	// Fake opcode
-	'loop',
-]
+// loop is a fake opcode
+const op_codes = ['ADR', 'ADD', 'SUB', 'MUL', 'DIV', 'SET', 'DEL', 'DEBUG_MEM', 'DEBUG_ADR', 'GET',
+	'JNZ', 'PNT', 'WIPE', 'PNS', 'loop']
 
 struct ProgramLine {
 	line        string
