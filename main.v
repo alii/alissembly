@@ -9,11 +9,6 @@ struct ProgramLine {
 	line_number i16
 }
 
-struct ProgramLabel {
-	name        string
-	line_number i16
-}
-
 fn main() {
 	data := os.read_file('./program.aa') or {
 		println("Couldn't open file idk why lol")
