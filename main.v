@@ -1,6 +1,18 @@
 import os
 
-const op_codes = ['ADR', 'ADD', 'SUB', 'MUL', 'DIV', 'SET', 'RET']
+const op_codes = [
+	'ADR',
+	'ADD',
+	'SUB',
+	'MUL',
+	'DIV',
+	'SET',
+	'RET',
+	'DEL',
+	'DEBUG_MEM',
+	'DEBUG_ADR',
+	'GET',
+]
 
 struct ProgramLine {
 	line   string
@@ -47,6 +59,18 @@ fn main() {
 			}
 			'DIV' {
 				mem[curr_addr] = mem[args[0]] / mem[args[1]]
+			}
+			'DEL' {
+				mem.delete(args[0])
+			}
+			'DEBUG_ADR' {
+				println(curr_addr.str() + ': ' + mem[curr_addr].str())
+			}
+			'DEBUG_MEM' {
+				println(mem)
+			}
+			'GET' {
+				mem[curr_addr] = mem[args[0]]
 			}
 			'RET' {
 				println(mem[args[0]])
