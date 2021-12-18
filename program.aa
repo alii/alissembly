@@ -1,0 +1,31 @@
+# We start by moving the pointer to the first memory cell
+# and setting the value of the cell to 20
+ADR 0
+SET 20
+
+# We then move the pointer to the second memory cell
+# and set the value of the cell to 50
+ADR 1
+SET 50
+
+# We then move the pointer to the third memory cell
+# and set the value of the cell to the sum of the first two cells
+ADR 2
+ADD 0 1
+
+# next, we multiply the third cell by itself (and store it in itself)
+MUL 2 2
+
+# We go to the fourth cell and set it to 10
+ADR 3
+SET 10
+
+# We go back to the third cell and divide it's value by the fourth cell
+ADR 2
+DIV 2 3
+
+# Add the value of the fourth cell to the third cell
+ADD 3 2
+
+# And we return the third cell's value (500)
+RET 2
