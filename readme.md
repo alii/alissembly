@@ -12,9 +12,9 @@ you can see some program examples in `program.aa`
 | `MUL`       | Multiply the value at given addresses and store the result in the current address    | `address1`, `address2` |
 | `DIV`       | Divide the value at given addresses and store the result in the current address      | `address1`, `address2` |
 | `SET`       | Set the value at the current address to the integer value                            | `value`                |
-| `DEL`       | Delete the value at the current address                                              | `address`              |
+| `DEL`       | Delete the value at given address                                                    | `address`              |
 | `GET`       | Get the value at the given address and stores it in the current address (aka a copy) | `address`              |
-| `JNZ`       | Jump to the given loop label if the value at the current address is not zero         | `address`, `label`     |
+| `JNZ`       | Jump to the given loop label if the value at given address is not zero               | `address`, `label`     |
 | `PNT`       | Print the value at the current address                                               |                        |
 | `PNS`       | Print the value at the current memory address as ascii text                          |                        |
 | `WIPE`      | Wipe the memory map                                                                  |                        |
